@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="JEnumerable:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/JEnumerable_jar</output-path>
+    <root id="archive" name="JEnumerable.jar">
+      <element id="module-output" name="JEnumerable" />
+    </root>
+  </artifact>
+</component>
