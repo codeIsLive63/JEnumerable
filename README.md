@@ -84,7 +84,7 @@ public class Main {
 ```java
 import codeislive63.collections.generic.List;
 import codeislive63.jenumerable.JEnumerable;
-import codeislive63.Person; // Assuming Person class is defined
+import codeislive63.Person; // Предполагается, что класс Person определен
 
 public class Main {
     public static void main(String[] args) {
@@ -107,7 +107,7 @@ public class Main {
 ```java
 import codeislive63.collections.generic.List;
 import codeislive63.jenumerable.JEnumerable;
-import codeislive63.Person; // Assuming Person class is defined
+import codeislive63.Person; // Предполагается, что класс Person определен
 
 public class Main {
     public static void main(String[] args) {
@@ -123,13 +123,13 @@ public class Main {
 }
 ```
 
-Эти примеры демонстрируют основные способы использования JEnumerable для работы с коллекциями. Смотри файл src/codeislive63/Main.java для более полных примеров.
+Эти примеры демонстрируют основные способы использования JEnumerable для работы с коллекциями. Смотри файл `src/codeislive63/Main.java` для более полных примеров.
 
 ## API Документация
 
 ### JEnumerable Class
 
-*   **`static <TCollection> JEnumerable<TCollection> from(Enumerable<TCollection> collection)`**: Создает JEnumerable из объекта Enumerable.
+*   **`static <TCollection> JEnumerable<TCollection> from(Enumerable<TCollection> collection)`**: Создает `JEnumerable` из объекта Enumerable.
 *   **`static <TCollection> JEnumerable<TCollection> from(TCollection... collection)`**: Создает `JEnumerable` из переменного числа аргументов (массива).
 *   **`static <TCollection> JEnumerable<TCollection> from(Iterable<TCollection> collection)`**: Создает `JEnumerable` из коллекции Iterable.
 *   **`<TResult> JEnumerable<TResult> select(Func<TSource, TResult> selector)`**: Проецирует каждый элемент последовательности в новую форму с использованием функции селектора.
@@ -160,7 +160,7 @@ public class Main {
 
 ### Делегаты
 
-Некоторые функциональные интерфейсы определены в пакетах codeislive63.delegates и codeislive63.delegates.generic, включая:
+Некоторые функциональные интерфейсы определены в пакетах `codeislive63.delegates` и `codeislive63.delegates.generic`, включая:
 
 *   **`Action<T>`**: Представляет действие, которое принимает один аргумент.
 *   **`AnyAction`**: Представляет действие, которое не принимает аргументов.
@@ -169,10 +169,6 @@ public class Main {
 *   **`BiFunc<T1, T2, TResult>`**: Представляет функцию, которая принимает два аргумента и возвращает результат.
 *   **`Predicate<T>`**: Представляет функцию, которая принимает один аргумент и возвращает логическое значение.
 
-## License Information
+## Контактная информация
 
-License is not specified.
-
-## Contact/Support Information
-
-For questions, bug reports, or feature requests, please open an issue on the [GitHub repository](https://github.com/codeIsLive63/JEnumerable).
+Если у вас есть вопросы, вы можете сообщить об ошибках или предложить новые функции. Для этого создайте задачу в [репозитории GitHub](https://github.com/codeIsLive63/JEnumerable).
