@@ -2,7 +2,7 @@
 
 JEnumerable — это фреймворк для работы с коллекциями, реализующий LINQ-подобный API на Java. Он предоставляет удобные методы для обработки данных, а также операции преобразования коллекций в потоки и массивы.
 
-## Features and Functionality
+## Возможности
 
 *   **LINQ-подобный API:** Предоставляет методы, аналогичные LINQ, для работы с коллекциями в Java.
 *   **`from()`:** Создает `JEnumerable` из `Enumerable`, массива, `Iterable`.
@@ -19,41 +19,37 @@ JEnumerable — это фреймворк для работы с коллекц�
 *   **`all()`:** Проверяет, удовлетворяют ли все элементы коллекции заданному условию.
 *   **Fluent API:** Позволяет строить цепочки операций над коллекциями.
 
-## Technology Stack
+## Технологический стек
 
 *   Java 8+
 
-## Prerequisites
+## Инстркция по установке
 
-*   Java Development Kit (JDK) 8 or higher.
-
-## Installation Instructions
-
-1.  Clone the repository:
+1.  Клонируй репозиторий:
 
     ```bash
     git clone https://github.com/codeIsLive63/JEnumerable.git
     ```
 
-2.  Navigate to the project directory:
+2.  Перейди в каталог проекта:
 
     ```bash
     cd JEnumerable
     ```
 
-3.  Build the project (using your preferred build tool like Maven or Gradle).  Since the provided code doesn't include build scripts, you'll need to create your own based on your project setup.  For example, with Maven:
+3.  Собери проект (используя предпочитаемый инструмент сборки, например, Maven или Gradle). Поскольку предоставленный код не включает сценарии сборки, тебе нужно будет создать их самостоятельно на основе настроек проекта. Например, с Maven:
 
     ```bash
     mvn clean install
     ```
 
-    (You'll need to create a `pom.xml` file in the project root.  A basic `pom.xml` is not included.)
+    (Тебе нужно будет создать файл pom.xml в корне проекта. Базовый файл pom.xml не включен.)
 
-## Usage Guide
+## Руководство по использованию
 
-Here are some examples of how to use JEnumerable:
+Несколько примеров того, как использовать JEnumerable:
 
-**Example 1: Flattening a Nested List**
+**Пример 1: Преобразование многомерного списка в одномерный**
 
 ```java
 import codeislive63.collections.generic.List;
@@ -83,7 +79,7 @@ public class Main {
 }
 ```
 
-**Example 2:  Selecting Favorite Languages**
+**Пример 2:  Выбор любимых языков**
 
 ```java
 import codeislive63.collections.generic.List;
@@ -106,7 +102,7 @@ public class Main {
 }
 ```
 
-**Example 3: Using `count` and `take`**
+**Пример 3: Использование `count` и `take`**
 
 ```java
 import codeislive63.collections.generic.List;
@@ -127,61 +123,51 @@ public class Main {
 }
 ```
 
-These examples demonstrate the basic usage of `JEnumerable` for common collection manipulation tasks.  Refer to the `src/codeislive63/Main.java` file for more complete examples.
+Эти примеры демонстрируют основные способы использования JEnumerable для работы с коллекциями. Смотри файл src/codeislive63/Main.java для более полных примеров.
 
-## API Documentation
+## API Документация
 
 ### JEnumerable Class
 
-*   **`static <TCollection> JEnumerable<TCollection> from(Enumerable<TCollection> collection)`**: Creates a `JEnumerable` from an `Enumerable` object.
-*   **`static <TCollection> JEnumerable<TCollection> from(TCollection... collection)`**: Creates a `JEnumerable` from a variable number of arguments (array).
-*   **`static <TCollection> JEnumerable<TCollection> from(Iterable<TCollection> collection)`**: Creates a `JEnumerable` from an `Iterable` collection.
-*   **`<TResult> JEnumerable<TResult> select(Func<TSource, TResult> selector)`**: Projects each element of a sequence into a new form using a selector function.
-*   **`<TResult> JEnumerable<TResult> select(BiFunc<TSource, Integer, TResult> selector)`**: Projects each element of a sequence into a new form by incorporating the element's index, using a selector function.
-*   **`<TResult> JEnumerable<TResult> selectMany(Func<TSource, Enumerable<TResult>> selector)`**: Projects each element of a sequence to an `Enumerable<TResult>` and flattens the resulting sequences into one sequence.
-*   **`<TResult> JEnumerable<TResult> selectMany(BiFunc<TSource, Integer, Enumerable<TResult>> selector)`**: Projects each element of a sequence to an `Enumerable<TResult>` by incorporating the element's index and flattens the resulting sequences into one sequence.
-*   **`<TCollection, TResult> JEnumerable<TResult> selectMany(Func<TSource, Enumerable<TCollection>> collectionSelector, BiFunc<TSource, TCollection, TResult> resultSelector)`**: Projects each element of a sequence to an `Enumerable<TCollection>` and invokes a result selector function on each element of the resulting sequence.
-*   **`<TCollection, TResult> JEnumerable<TResult> selectMany(BiFunc<TSource, Integer, Enumerable<TCollection>> collectionSelector, BiFunc<TSource, TCollection, TResult> resultSelector)`**: Projects each element of a sequence to an `Enumerable<TCollection>` by incorporating the element's index and invokes a result selector function on each element of the resulting sequence.
-*   **`JEnumerable<TSource> where(Predicate<TSource> predicate)`**: Filters a sequence of values based on a predicate.
-*   **`JEnumerable<TSource> where(BiFunc<TSource, Integer, Boolean> predicate)`**: Filters a sequence of values based on a predicate, where each element's index is also used in the predicate.
-*   **`int count()`**: Returns the number of elements in a sequence.
-*   **`int count(Func<TSource, Boolean> predicate)`**: Returns the number of elements in a sequence that satisfy a condition.
-*   **`JEnumerable<TSource> take(int count)`**: Returns a specified number of contiguous elements from the start of a sequence.
-*   **`List<TSource> toList()`**: Converts the `JEnumerable` sequence to a `List`.
-*   **`TSource[] toArray()`**: Converts the `JEnumerable` sequence to an array.
-*   **`Stream<TSource> asStream()`**: Converts the `JEnumerable` sequence to a sequential stream.
-*   **`Stream<TSource> asParallelStream()`**: Converts the `JEnumerable` sequence to a parallel stream.
-*   **`boolean any(Predicate<TSource> predicate)`**: Determines whether any element of a sequence satisfies a condition.
-*   **`boolean all(Predicate<TSource> predicate)`**: Determines whether all elements of a sequence satisfy a condition.
-*   **`Enumerator<TSource> getEnumerator()`**: Returns an enumerator that iterates through the collection.
+*   **`static <TCollection> JEnumerable<TCollection> from(Enumerable<TCollection> collection)`**: Создает JEnumerable из объекта Enumerable.
+*   **`static <TCollection> JEnumerable<TCollection> from(TCollection... collection)`**: Создает `JEnumerable` из переменного числа аргументов (массива).
+*   **`static <TCollection> JEnumerable<TCollection> from(Iterable<TCollection> collection)`**: Создает `JEnumerable` из коллекции Iterable.
+*   **`<TResult> JEnumerable<TResult> select(Func<TSource, TResult> selector)`**: Проецирует каждый элемент последовательности в новую форму с использованием функции селектора.
+*   **`<TResult> JEnumerable<TResult> select(BiFunc<TSource, Integer, TResult> selector)`**: Проецирует каждый элемент последовательности в новую форму с учетом индекса элемента.
+*   **`<TResult> JEnumerable<TResult> selectMany(Func<TSource, Enumerable<TResult>> selector)`**: Проецирует каждый элемент последовательности в `Enumerable<TResult>` и объединяет результат в одну последовательность.
+*   **`<TResult> JEnumerable<TResult> selectMany(BiFunc<TSource, Integer, Enumerable<TResult>> selector)`**: Проецирует каждый элемент последовательности в `Enumerable<TResult>`, учитывая индекс элемента, и объединяет результат в одну последовательность.
+*   **`<TCollection, TResult> JEnumerable<TResult> selectMany(Func<TSource, Enumerable<TCollection>> collectionSelector, BiFunc<TSource, TCollection, TResult> resultSelector)`**: Проецирует каждый элемент последовательности в `Enumerable<TCollection>` и вызывает функцию для обработки каждого элемента результирующей последовательности.
+*   **`<TCollection, TResult> JEnumerable<TResult> selectMany(BiFunc<TSource, Integer, Enumerable<TCollection>> collectionSelector, BiFunc<TSource, TCollection, TResult> resultSelector)`**: Проецирует каждый элемент последовательности в `Enumerable<TCollection>`, учитывая индекс элемента, и вызывает функцию для обработки каждого элемента результирующей последовательности.
+*   **`JEnumerable<TSource> where(Predicate<TSource> predicate)`**: Фильтрует последовательность значений на основе предиката.
+*   **`JEnumerable<TSource> where(BiFunc<TSource, Integer, Boolean> predicate)`**: Фильтрует последовательность значений на основе предиката, где индекс элемента также используется в предикате.
+*   **`int count()`**: Возвращает количество элементов в последовательности.
+*   **`int count(Func<TSource, Boolean> predicate)`**: Возвращает количество элементов в последовательности, которые удовлетворяют условию заданного предиката.
+*   **`JEnumerable<TSource> take(int count)`**: Возвращает указанное количество элементов с начала последовательности.
+*   **`List<TSource> toList()`**: Преобразует последовательность `JEnumerable` в `List`.
+*   **`TSource[] toArray()`**: Преобразует последовательность `JEnumerable` в массив.
+*   **`Stream<TSource> asStream()`**: Преобразует последовательность `JEnumerable` в последовательный поток элементов.
+*   **`Stream<TSource> asParallelStream()`**: Преобразует последовательность `JEnumerable` в параллельный поток элементов.
+*   **`boolean any(Predicate<TSource> predicate)`**: Определяет, удовлетворяет ли хотя бы один элемент последовательности заданному условию.
+*   **`boolean all(Predicate<TSource> predicate)`**: Определяет, удовлетворяют ли все элементы последовательности заданному условию.
+*   **`Enumerator<TSource> getEnumerator()`**: Возвращает перечислитель, который итерирует по коллекции.
 
-### Interfaces
+### Интерфейсы
 
-*   **`Enumerable<T>`**: Represents a collection that can be enumerated.
-*   **`Collection<T>`**: Extends `Enumerable` and provides methods for adding, removing, and clearing elements.
-*   **`ModifiableList<T>`**: Extends `Collection` and allows accessing elements by index, supporting modification operations.
-*   **`Enumerator<T>`**: Provides methods for iterating through a collection.
+*   **`Enumerable<T>`**: Представляет коллекцию, которая может быть перечислена.
+*   **`Collection<T>`**: Расширяет `Enumerable` и предоставляет методы для добавления, удаления и очистки элементов.
+*   **`ModifiableList<T>`**: Расширяет `Collection` и позволяет доступ к элементам по индексу, поддерживая операции модификации.
+*   **`Enumerator<T>`**: Предоставляет методы для итерации по коллекции.
 
-### Delegates
+### Делегаты
 
-Several functional interfaces are defined in the `codeislive63.delegates` and `codeislive63.delegates.generic` packages, including:
+Некоторые функциональные интерфейсы определены в пакетах codeislive63.delegates и codeislive63.delegates.generic, включая:
 
-*   **`Action<T>`**: Represents an action that takes one argument.
-*   **`AnyAction`**: Represents an action that takes no arguments.
-*   **`Func<T1, TResult>`**: Represents a function that takes one argument and returns a result.
-*   **`AnyFunc<TResult>`**: Represents a function that takes no arguments and returns a result.
-*   **`BiFunc<T1, T2, TResult>`**: Represents a function that takes two arguments and returns a result.
-*   **`Predicate<T>`**: Represents a function that takes one argument and returns a boolean value.
-
-## Contributing Guidelines
-
-Contributions are welcome! To contribute to JEnumerable, please follow these steps:
-
-1.  Fork the repository.
-2.  Create a new branch for your feature or bug fix.
-3.  Implement your changes and write tests.
-4.  Ensure that all tests pass.
-5.  Submit a pull request with a clear description of your changes.
+*   **`Action<T>`**: Представляет действие, которое принимает один аргумент.
+*   **`AnyAction`**: Представляет действие, которое не принимает аргументов.
+*   **`Func<T1, TResult>`**: Представляет функцию, которая принимает один аргумент и возвращает результат.
+*   **`AnyFunc<TResult>`**: Представляет функцию, которая не принимает аргументов и возвращает результат.
+*   **`BiFunc<T1, T2, TResult>`**: Представляет функцию, которая принимает два аргумента и возвращает результат.
+*   **`Predicate<T>`**: Представляет функцию, которая принимает один аргумент и возвращает логическое значение.
 
 ## License Information
 
