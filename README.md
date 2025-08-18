@@ -2,6 +2,8 @@
 
 JEnumerable — это фреймворк для работы с коллекциями, реализующий LINQ-подобный API на Java. Он предоставляет удобные методы для обработки данных, а также операции преобразования коллекций в потоки и массивы.
 
+[![GitHub Repo](https://img.shields.io/badge/GitHub-Repo-blue?logo=github)](https://github.com/codeislive63/JEnumerable)
+
 ## Возможности
 
 *   **LINQ-подобный API:** Предоставляет методы, аналогичные LINQ, для работы с коллекциями в Java.
